@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Forms</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2>Registration Form</h2>
+    <div class="form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label>Gender:</label>
+      <div class="gndr">
+        <input type="radio" id="male" name="gender" value="Male"/>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female" />
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other" />
+        <label for="other">Other</label>
+      </div>
+
+      <label>Qualification:</label>
+      <div class="quali">
+        <input type="checkbox" id="tenth" name="qualification" value="10th" />
+        <label for="tenth">10th</label>
+        <input type="checkbox" id="twelfth" name="qualification" value="12th" />
+        <label for="twelfth">12th</label>
+        <input
+          type="checkbox"
+          id="graduation"
+          name="qualification"
+          value="Graduation"
+        />
+        <label for="graduation">Graduation</label>
+        <input
+          type="checkbox"
+          id="postgraduation"
+          name="qualification"
+          value="Post Graduation"
+        />
+        <label for="postgraduation">Post Graduation</label>
+      </div>
+
+      <label for="experience">Experience: </label>
+      <input type="range" name="experience" id="experience" min="0" max="10" value="2">
+
+      <label for="password">Create Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="resume">Resume Upload</label>
+      <input type="file" name="resume" id="resume">
+
+      <div class="t_c">
+        <input type="checkbox" id="accept" name="accept" required />
+        <label for="accept">I accept the terms and conditions</label>
+      </div>
+      
+      <button id="sbmtbtn" onclick="submit()">Register</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

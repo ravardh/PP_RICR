@@ -1,0 +1,47 @@
+.div{
+    width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+
+
+#con1{
+    border: 1px solid #000;
+    margin: 10px;
+}
+
+.btns{
+    display: grid;
+    grid-template-columns: 300px 100px;
+}
+
+.dark{
+    background-color: rgb(27, 26, 26);
+    color: aliceblue;
+}
+
+#red{
+    background-color: red;
+    color: white;
+}
+
+#green{
+    background-color: green;
+    color: white;
+}
+
+#blue{
+    background-color: blue;
+    color: white;
+}
+
+#color{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+}

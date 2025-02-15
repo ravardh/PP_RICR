@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS on Style</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="div">
+      <div class="container" id="con1">
+        <h1 id="h1">I am a Heading</h1>
+        <p id="p">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Exercitationem minus cupiditate laborum aperiam corrupti facere
+          quaerat sit fugiat est et, officiis amet odit nemo unde non nihil
+          dignissimos esse rerum.
+        </p>
+      </div>
+
+      <div class="btns">
+        <label for="back">Background Color: </label>
+        <input type="color" name="back" id="back" onchange="changeback(value)">
+
+        <label for="head">Heading Color: </label>
+        <input type="color" name="head" id="head" onchange="changehead(value)">
+
+        <label for="text">Background Color: </label>
+        <input type="color" name="text" id="text" onchange="changetext(value)">
+      </div>
+    </div>
+
+    <button id="drk" onclick="dark()">Dark theme</button>
+    <button id="lgt" onclick="light()">light theme</button>
+
+    <button id="theme" onclick="changetheme()">Dark theme</button>
+
+    <button id="red" onclick="changeColor('red')">red</button>
+    <button id="green" onclick="changeColor('green')">green</button>
+    <button id="blue" onclick="changeColor('blue')">blue</button>
+
+    <input type="color" name="color" id="color" onchange="changeColor(value)" />
+    <script src="script.js"></script>
+  </body>
+</html>
