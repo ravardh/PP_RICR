@@ -1,0 +1,12 @@
+.error{
+    border-color: red;
+    box-shadow: 0 0 8px 3px red;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
