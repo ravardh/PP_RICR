@@ -1,0 +1,108 @@
+{
+    "books": [
+        {
+            "title": "1984",
+            "author": "George Orwell",
+            "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg",
+            "price": "₹1099",
+            "pages": 328
+        },
+        {
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "description": "A novel about the American dream and the roaring twenties.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81af+MCATTL.jpg",
+            "price": "₹899",
+            "pages": 180
+        },
+        {
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger",
+            "description": "A story about teenage alienation and the loss of innocence in the modern world.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg",
+            "price": "₹749",
+            "pages": 277
+        },
+        {
+            "title": "The Hobbit",
+            "author": "J.R.R. Tolkien",
+            "description": "A fantasy novel and prelude to the Lord of the Rings trilogy.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91b0C2YNSrL.jpg",
+            "price": "₹1199",
+            "pages": 310
+        },
+        {
+            "title": "Jane Eyre",
+            "author": "Charlotte Bronte",
+            "description": "A coming-of-age story that explores themes of love, independence, and morality.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91HHqVTAJQL.jpg",
+            "price": "₹899",
+            "pages": 500
+        },
+        {
+            "title": "Crime and Punishment",
+            "author": "Fyodor Dostoevsky",
+            "description": "A psychological novel about the moral dilemmas of a young ex-student in Saint Petersburg.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg",
+            "price": "₹999",
+            "pages": 671
+        },
+        {
+            "title": "Wuthering Heights",
+            "author": "Emily Bronte",
+            "description": "A novel about the turbulent and tragic love story of Heathcliff and Catherine Earnshaw.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91zbi9M+mKL.jpg",
+            "price": "₹799",
+            "pages": 416
+        },
+        {
+            "title": "Brave New World",
+            "author": "Aldous Huxley",
+            "description": "A dystopian novel that explores the consequences of a technologically advanced society.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81t2CVWEsUL.jpg",
+            "price": "₹849",
+            "pages": 288
+        },
+        {
+            "title": "The Lord of the Rings",
+            "author": "J.R.R. Tolkien",
+            "description": "An epic fantasy adventure that follows the quest to destroy the One Ring.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91SZSW8qSsL.jpg",
+            "price": "₹2499",
+            "pages": 1178
+        },
+        {
+            "title": "The Alchemist",
+            "author": "Paulo Coelho",
+            "description": "A philosophical novel about a shepherd's journey to find a hidden treasure.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg",
+            "price": "₹699",
+            "pages": 197
+        },
+        {
+            "title": "The Book Thief",
+            "author": "Markus Zusak",
+            "description": "A story set in Nazi Germany about a young girl who finds solace by stealing books.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg",
+            "price": "₹999",
+            "pages": 552
+        },
+        {
+            "title": "The Chronicles of Narnia",
+            "author": "C.S. Lewis",
+            "description": "A series of fantasy novels about the adventures of children in the magical land of Narnia.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91HHqVTAJQL.jpg",
+            "price": "₹1599",
+            "pages": 768
+        },
+        {
+            "title": "The Kite Runner",
+            "author": "Khaled Hosseini",
+            "description": "A story about friendship, redemption, and the history of Afghanistan.",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg",
+            "price": "₹799",
+            "pages": 372
+        }
+    ]
+}
