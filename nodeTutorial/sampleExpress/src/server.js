@@ -23,7 +23,7 @@ const middleware3 = (req, res, next) => {
   next();
 };
 
-app.get("/login", (req, res) => [res.send("Login Done")]);
+app.delete("/login", (req, res) => [res.send("Login Done")]);
 
 app.post("/signup", middleware2, middleware3 , (req, res) => {
   let { nm, unm, pass } = req.body;
