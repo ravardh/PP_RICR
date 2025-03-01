@@ -45,3 +45,19 @@
     height: 50px;
     border-radius: 50%;
 }
+
+.div2{
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+label{
+    border: 1px solid #000;
+    margin: 0 5px;
+
+}

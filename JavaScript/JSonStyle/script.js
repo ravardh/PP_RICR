@@ -1,55 +1,40 @@
-function red() {
-  document.getElementById("con1").style.backgroundColor = "red";
+const lb1 = document.getElementById("col1");
+const lb2 = document.getElementById("col2");
+const lb3 = document.getElementById("col3");
+
+const D = document.getElementById("con1");
+const H = document.getElementById("h1");
+const P = document.getElementById("p");
+
+lb1.addEventListener("mouseover", changecolr1);
+lb2.addEventListener("mouseover", changecolr2);
+lb3.addEventListener("mouseover", changecolr3);
+
+
+lb1.addEventListener("mouseout", restcolr)
+lb2.addEventListener("mouseout", restcolr)
+lb3.addEventListener("mouseout", restcolr)
+
+function changecolr1() {
+  D.style.backgroundColor = "gray";
+  H.style.color = "blue";
+  P.style.color = "skyblue";
 }
 
-function green() {
-  document.getElementById("con1").style.backgroundColor = "green";
+function changecolr2() {
+  D.style.backgroundColor = "yellow";
+  H.style.color = "red";
+  P.style.color = "orange";
 }
-
-function blue() {
-  document.getElementById("con1").style.backgroundColor = "blue";
-}
-
-function dark() {
-  document.getElementById("con1").classList.add("dark");
-}
-
-function light() {
-  document.getElementById("con1").classList.remove("dark");
-}
-
-function changetheme() {
-  document.getElementById("con1").classList.toggle("dark");
-  const mode = document.getElementById("theme");
-
-  console.log(mode);
-
-  if (mode.innerText === "Dark theme") {
-    mode.innerText = "Light theme";
-  } else {
-    mode.innerText = "Dark theme";
-  }
-}
-
-
-
-function changeColor(color){
-    document.getElementById("con1").style.backgroundColor = color;
+function changecolr3() {
+  D.style.backgroundColor = "violet";
+  H.style.color = "peachpuff";
+  P.style.color = "green";
 }
 
 
-
-function changehead(color){
-    document.getElementById("h1").style.color = color;
-}
-
-
-
-function changeback(color){
-    document.getElementById("con1").style.backgroundColor = color;
-}
-
-
-function changetext(color){
-    document.getElementById("p").style.color = color;
+function restcolr(){
+  D.style.backgroundColor = "white";
+  H.style.color = "black";
+  P.style.color = "black";
 }
