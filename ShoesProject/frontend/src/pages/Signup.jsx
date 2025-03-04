@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "../config/api";
+import showToast from "../components/toast";
 
 export default function Signup() {
   const [inputData, setInputData] = useState({
@@ -74,7 +75,7 @@ export default function Signup() {
       });
       
     } catch (error) {
-      console.error("Error:", error);
+      showToast.error("Error:", error);
     }
   };
 

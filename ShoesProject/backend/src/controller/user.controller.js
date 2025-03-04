@@ -83,7 +83,7 @@ export const userLogin = async (req, res, next) => {
 
 export const userLogout = (req, res, next) => {
   try {
-    res.cookie("jwt","");
+    res.cookie("jwt", "");
     res.status(200).json({ message: "User Logout Sucessfull" });
   } catch (error) {
     error.statusCode = 400;
@@ -93,7 +93,8 @@ export const userLogout = (req, res, next) => {
 
 export const userUpdate = async (req, res, next) => {
   try {
-    const { fullName, gender, age, mobile } = req.body;
+    const { fullName, gender, age, mobile, image } = req.body;
+    console.log(fullName, gender, age, mobile, image);
     const userID = req.verifiedUser._id;
 
     const UpdatedUser = await User.findByIdAndUpdate(
@@ -103,6 +104,7 @@ export const userUpdate = async (req, res, next) => {
         gender,
         age,
         mobile,
+        profilePic: image,
       },
       { new: true }
     );
@@ -159,9 +161,10 @@ export const userDelete = async (req, res, next) => {
 
 export const userCheck = (req, res, next) => {
   try {
-    const { fullName, email, gender, age, mobile } = req.verifiedUser;
+    const { fullName, email, gender, age, mobile, profilePic } =
+      req.verifiedUser;
 
-    res.status(200).json({ fullName, email, gender, age, mobile });
+    res.status(200).json({ fullName, email, gender, age, mobile, profilePic });
   } catch (error) {
     error.statusCode = 400;
     next(error);
