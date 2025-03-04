@@ -9,6 +9,7 @@ import Sale from "./pages/Sale";
 import Kids from "./pages/Kids";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import UpdateProfile from "./pages/UpdateProfile";
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/kids" element={<Kids />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/updateProfile" element={<UpdateProfile/>}/>
        
       </Routes>
     </Router>

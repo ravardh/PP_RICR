@@ -12,6 +12,7 @@ export default function Navbar() {
           <li><Link to="/women" className="hover:text-gray-400">Women</Link></li>
           <li><Link to="/sale" className="hover:text-gray-400">Sale</Link></li>
           <li><Link to="/kids" className="hover:text-gray-400">Kids</Link></li>
+          <li><Link to="/updateProfile" className="hover:text-gray-400">update</Link></li>
         </ul>
         <div className="flex gap-4">
           <FaSearch className="text-xl cursor-pointer hover:text-gray-400" />
