@@ -3,15 +3,25 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import userRoutes from "./src/routes/user.routes.js";
 import connectDB from "./src/lib/db.js";
+import cookieParser from "cookie-parser";
 
 //create Express Instance
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+//parse Cookies Data
+app.use(cookieParser());
 
 //creating Routes
 app.use("/api/user", userRoutes);

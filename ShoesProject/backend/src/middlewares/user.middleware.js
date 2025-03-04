@@ -12,14 +12,23 @@ export const userLog = (req, res, next) => {
   next();
 };
 
+export const confirmUser = async (req, res, next) => {
+  try {
+    const token = req.cookies.jwt;
+    if (!token) {
+      const er = new Error("Session Expired ! Please Login Again");
+      er.statusCode = 401;
+      next(er);
+      return;
+    }
 
-export const confirmUser = async (req,res,next)=>{
-  const token = req.cookies.jwt;
+    const decode = jwt.verify(token, process.env.JWT_SECRET);
 
-  const decode = jwt.verify(token,process.env.JWT_SECRET);
+    const verifiedUser = await User.findById(decode.key);
 
-  const verfiedUser = await User.findByID(decode.key);
-
-  req.verfiedUser = verfiedUser;
-  next();
-}
+    req.verifiedUser = verifiedUser;
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
