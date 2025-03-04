@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import axios from "../config/api"
+import axios from "../config/api";
 
 export default function Signup() {
-  const [formData, setFormData] = useState({
+  const [inputData, setInputData] = useState({
     fullName: "",
     email: "",
     password: "",
@@ -19,50 +19,60 @@ export default function Signup() {
   const validate = () => {
     setErrors({});
     let tempErrors = {};
+    const nameRegex = /^[A-Za-z\s]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
     const mobileRegex = /^[6-9]\d{9}$/;
 
-    if (!formData.fullName) tempErrors.fullName = "Full Name is required.";
+    if (!nameRegex.test(inputData.fullName) || inputData.fullName.length < 3)
+      tempErrors.fullName = "Full Name is required.";
 
-    if (!emailRegex.test(formData.email))
+    if (!emailRegex.test(inputData.email))
       tempErrors.email = "Invalid email format.";
 
-    if (!passwordRegex.test(formData.password))
+    if (!passwordRegex.test(inputData.password))
       tempErrors.password =
-        "Password must be at least 8 characters long and include a number.";
+        "Password must be at least 8 characters long and combination of A-Z , a-z , 0-9 and special characters.";
 
-    if (!formData.gender) tempErrors.gender = "Please select a gender.";
+    if (!inputData.gender) tempErrors.gender = "Please select a gender.";
 
-    if (!formData.age || formData.age < 18)
+    if (!inputData.age || inputData.age < 18)
       tempErrors.age = "Age must be at least 18.";
 
-    if (!mobileRegex.test(formData.mobile))
+    if (!mobileRegex.test(inputData.mobile))
       tempErrors.mobile = "Invalid mobile number.";
 
-    if (!formData.agree)
+    if (!inputData.agree)
       tempErrors.agree = "You must agree to the Terms & Conditions.";
 
     setErrors(tempErrors);
-    console.log(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
+    setInputData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
 
+  const formData = new FormData();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const valid =validate();
+    const valid = validate();
     if (!valid) return;
-
+    for (const key in inputData) {
+      formData.append(key, inputData[key]); // Append key-value pairs
+    }
+    console.log(formData);
     try {
-      const response = await axios.post("/api/user/signup",formData)
+      const response = await axios.post("/api/user/signup", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      
     } catch (error) {
       console.error("Error:", error);
     }
@@ -84,7 +94,7 @@ export default function Signup() {
             name="fullName"
             type="text"
             placeholder="Full Name"
-            value={formData.fullName}
+            value={inputData.fullName}
             onChange={handleChange}
             className="w-full p-2 border rounded-lg"
           />
@@ -96,7 +106,7 @@ export default function Signup() {
             name="email"
             type="email"
             placeholder="Email"
-            value={formData.email}
+            value={inputData.email}
             onChange={handleChange}
             className="w-full p-2 border rounded-lg"
           />
@@ -108,7 +118,7 @@ export default function Signup() {
             name="password"
             type="password"
             placeholder="Password"
-            value={formData.password}
+            value={inputData.password}
             onChange={handleChange}
             className="w-full p-2 border rounded-lg"
           />
@@ -145,7 +155,7 @@ export default function Signup() {
             name="age"
             type="number"
             placeholder="Age"
-            value={formData.age}
+            value={inputData.age}
             onChange={handleChange}
             className="w-full p-2 border rounded-lg"
           />
@@ -155,7 +165,7 @@ export default function Signup() {
             name="mobile"
             type="text"
             placeholder="Mobile Number"
-            value={formData.mobile}
+            value={inputData.mobile}
             onChange={handleChange}
             className="w-full p-2 border rounded-lg"
           />
@@ -167,7 +177,7 @@ export default function Signup() {
             <input
               type="checkbox"
               name="agree"
-              checked={formData.agree}
+              checked={inputData.agree}
               onChange={handleChange}
               className="mr-2"
             />
