@@ -11,7 +11,7 @@ export default function Navbar() {
 
   useEffect(() => {
     // Fetch user data from localStorage
-    const storedUser = localStorage.getItem("user");
+    const storedUser = sessionStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -19,22 +19,21 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
-        await axios.post("/api/user/logout");
+      await axios.post("/api/user/logout");
 
-        sessionStorage.removeItem("user"); // Remove stored user info from sessionStorage
+      sessionStorage.removeItem("user"); // Remove stored user info from sessionStorage
 
-        setUser(null);
-        setDropdownOpen(false);
-        toast.success("Logged out successfully");
+      setUser(null);
+      setDropdownOpen(false);
+      toast.success("Logged out successfully");
 
-        setTimeout(() => {
-            window.location.reload();
-        }, 1500); // Delay to let toast show
-
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500); // Delay to let toast show
     } catch (error) {
-        toast.error("Logout failed");
+      toast.error("Logout failed");
     }
-};
+  };
 
   return (
     <nav className="bg-black text-white p-4 shadow-md">
