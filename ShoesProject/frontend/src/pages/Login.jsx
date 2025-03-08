@@ -12,15 +12,36 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/user/login", { email, password });
+        const { data } = await axios.post("/api/user/login", { email, password });
 
-      showToast.success("Login Successful!");
-      setUser(data); // Store user globally
-      navigate("/");
+        // Fetch user profile (token is included automatically from cookies)
+        const response = await axios.get("/api/user/check");
+        const profile = response.data; // Correct way to access data
+
+        // Save user info in sessionStorage instead of localStorage
+        sessionStorage.setItem("user", JSON.stringify(profile));
+
+        // Show success message
+        showToast.success(data.message);
+
+        // Navigate and delay reload to let toast appear
+        navigate("/");
+        setTimeout(() => {
+            window.location.reload();
+        }, 1500); // Delay to let toast show
+
     } catch (error) {
-      showToast.error("Login Denied! Invalid Credentials.");
+        showToast.error("Login Denied! Invalid Credentials.");
+
+        if (error.response) {
+            console.error("Error Status:", error.response.status);
+            console.error("Error Response:", error.response.data);
+        } else {
+            console.error("Network Error:", error.message);
+        }
     }
-  };
+};
+
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-200 p-4">

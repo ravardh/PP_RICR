@@ -107,7 +107,7 @@ export const userUpdate = async (req, res, next) => {
         profilePic: image,
       },
       { new: true }
-    );
+    ).select("-password");
 
     res.status(200).json({ message: "User Update Sucessfull", UpdatedUser });
   } catch (error) {
